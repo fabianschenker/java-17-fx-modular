@@ -1,28 +1,27 @@
 package com.example.graphics;
 
-import com.example.calculator.Calculator;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class GraphicsApp extends Application {
+import java.io.IOException;
 
-    Calculator calc = new Calculator();
+public class GraphicsApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         try {
-            BorderPane root = new BorderPane();
-            // root.setCenter(createInputPane());
-            Scene scene = new Scene(root,400,400);
-            primaryStage.setScene(scene);
+            FXMLLoader fxmlLoader = new FXMLLoader(GraphicsApp.class.getResource("graphicsRectangular.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 580, 270);
             primaryStage.setTitle("Graphics App");
+            primaryStage.setScene(scene);
             primaryStage.show();
-        } catch(Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         launch(args);
     }
