@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class GraphicsController implements Initializable {
 
-    private Rectangular rect = new Rectangular(1,1,getWidthField(),getHeightField());
+    private Rectangular rect;
 
     @FXML
     public Label circumResult;
@@ -29,6 +29,7 @@ public class GraphicsController implements Initializable {
     }
 
     public void onComputeClicked() {
+        rect = new Rectangular(1,1,getWidthField(),getHeightField());
         areaResult.setText(String.valueOf(rect.computeArea()));
         circumResult.setText(String.valueOf(rect.computeCircumference()));
     }
